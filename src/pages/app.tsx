@@ -1,6 +1,11 @@
 import React from "react";
 import { BrowserRouter as Router, Switch, Route, Link } from "react-router-dom";
 
+import About from "pages/about";
+import Discography from "pages/discograpy";
+import Top from "pages/top";
+import HamburgerIcon from "components/icons/HamburgerIcon";
+
 export default function App() {
   return (
     <Router>
@@ -8,13 +13,14 @@ export default function App() {
         <nav>
           <ul>
             <li>
-              <Link to="/">Home</Link>
+              <HamburgerIcon size={24}></HamburgerIcon>
+              <Link to="/">Top</Link>
             </li>
             <li>
               <Link to="/about">About</Link>
             </li>
             <li>
-              <Link to="/users">Users</Link>
+              <Link to="/discography">Discography</Link>
             </li>
           </ul>
         </nav>
@@ -25,26 +31,14 @@ export default function App() {
           <Route path="/about">
             <About />
           </Route>
-          <Route path="/users">
-            <Users />
+          <Route path="/discography">
+            <Discography />
           </Route>
           <Route path="/">
-            <Home />
+            <Top />
           </Route>
         </Switch>
       </div>
     </Router>
   );
-}
-
-function Home() {
-  return <h2>Home</h2>;
-}
-
-function About() {
-  return <h2>About</h2>;
-}
-
-function Users() {
-  return <h2>Users</h2>;
 }
