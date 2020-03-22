@@ -1,44 +1,52 @@
 import React from "react";
 import { BrowserRouter as Router, Switch, Route, Link } from "react-router-dom";
+import styled from "styled-components";
 
 import About from "pages/about";
 import Discography from "pages/discograpy";
 import Top from "pages/top";
-import HamburgerIcon from "components/icons/HamburgerIcon";
+import DrawerMenu from "components/drawerMenu";
 
 export default function App() {
   return (
     <Router>
-      <div>
-        <nav>
-          <ul>
-            <li>
-              <HamburgerIcon size={24}></HamburgerIcon>
-              <Link to="/">Top</Link>
-            </li>
-            <li>
-              <Link to="/about">About</Link>
-            </li>
-            <li>
-              <Link to="/discography">Discography</Link>
-            </li>
-          </ul>
-        </nav>
+      <PageContainer>
+        <DrawerContainer>
+          <DrawerMenu />
+        </DrawerContainer>
 
         {/* A <Switch> looks through its children <Route>s and
             renders the first one that matches the current URL. */}
-        <Switch>
-          <Route path="/about">
-            <About />
-          </Route>
-          <Route path="/discography">
-            <Discography />
-          </Route>
-          <Route path="/">
-            <Top />
-          </Route>
-        </Switch>
-      </div>
+        <PageBodyContainer>
+          <Switch>
+            <Route path="/about">
+              <About />
+            </Route>
+            <Route path="/discography">
+              <Discography />
+            </Route>
+            <Route path="/">
+              <Top />
+            </Route>
+          </Switch>
+        </PageBodyContainer>
+      </PageContainer>
     </Router>
   );
 }
+
+const PageContainer = styled.div`
+  background: #aac;
+  width: 100%;
+  height: 100%;
+`;
+
+const DrawerContainer = styled.div`
+  height: 100px;
+`;
+
+const PageBodyContainer = styled.div`
+  position: absolute;
+  top: 0;
+  left: 0;
+`;
