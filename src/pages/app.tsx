@@ -38,7 +38,7 @@ export default function App() {
 const PageContainer = styled.div`
   background: #aac;
   width: 100%;
-  height: 100%;
+  height: 100px;
 `;
 
 const DrawerContainer = styled.div`
