@@ -52,6 +52,7 @@ const NavigationContainer = styled.div`
   background: #ccc;
   width: 200px;
   height: 100%;
+  overflow: hidden;
 `;
 const NavigationContent = styled.div`
   position: absolute;
